@@ -8,14 +8,14 @@
 </head>
 
 <body>
-    <h1>General Admission Registration</h1>
+    <h2>General Admission Registration</h2>
     <form>
         <label for="name">Name</label>
-        <input type="text" name="name"  placeholder="First Name" required>
-        <input type="text" name="name" placeholder="Last Name"required>
+        <input type="text" name="name" placeholder="First Name" required>
+        <input type="text" name="name" placeholder="Last Name" required>
         <div>
             <label for="email">Email</label>
-            <input type="text" name="" id="email" placeholder="sample@example.com">
+            <input type="email" name="" id="email" placeholder="sample@example.com">
         </div>
         <div>
             <label for="gender">Gender</label>
@@ -26,11 +26,11 @@
         </div>
         <div>
             <label for="phone">Phone</label>
-            <input type="tel" id="phone">
+            <input type="tel" id="phone" pattern="[0-9]{10}" title="Please enter a 10-digit phone number">
         </div>
         <div>
             <label for="contact">Emergency Contact</label>
-            <input type="tel" id="contact">
+            <input type="tel" id="contact" pattern="[0-9]{10}" title="Please enter a 10-digit phone number">
         </div>
         <div>
             <label for="parking">Do you require parking?</label>
@@ -41,7 +41,6 @@
                 <label for="no">No</label>
             </div>
         </div>
-
         <label for="room">What is your room preference?</label>
         <div>
             <input type="radio" id="single" name="room">
@@ -83,7 +82,6 @@
                     <label for="shellfish">Shellfish Allergy</label>
                 </div>
             </div>
-
             <div>
                 <label for="activities">What activities will you attend?</label>
                 <div>
@@ -99,7 +97,6 @@
                     <label for="town">Town Hall</label>
                 </div>
             </div>
-
             <div>
                 <label for="attendees">Do you want to see the list of other attendees and their profiles on the official
                     event app?</label>
@@ -111,6 +108,89 @@
                 </div>
             </div>
         </div>
+        <input type="submit">
+    </form>
+    <h2>Apointment Request Form</h2>
+    <form>
+        <h3>Full Name</h3>
+        <table>
+            <tr>
+                <td>
+                    <input type="text" id="firstname">
+                </td>
+                <td>
+                    <input type="text" id="lastname">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="firstname">First Name</label>
+                </td>
+                <td>
+                    <label for="lastname">Last Name</label>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <td>
+                    <h3>Contact Number</h3>
+                </td>
+                <td>
+                    <h3>Email Address</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="tel" id="contact" placeholder="(000) 000 0000" pattern="[0-9]{10}"
+                        title="Please enter a 10-digit phone number">
+                </td>
+                <td>
+                    <input type="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="contact">Please enter a valid <br>phone number</label>
+                </td>
+                <td>
+                    <label for="email">example@example.com</label>
+                </td>
+            </tr>
+        </table>
+        <h3>Address</h3>
+        <div>
+            <input type="text" id="street">
+        </div>
+        <div>
+            <label for="street">Street Address</label>
+        </div>
+        <div>
+            <input type="text" id="line2">
+        </div>
+        <div><label for="line2">Street Address Line2</label>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <input type="text" id="city">
+                </td>
+                <td>
+                    <input type="text" id="state">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="city">City</label>
+                </td>
+                <td>
+                    <label for="state">State / Province</label>
+                </td>
+            </tr>
+        </table>
+        <div><input type="number" id="postal"></div>
+        <div><label for="postal">Postal / Zip Code</label></div>
         <input type="submit">
     </form>
 </body>
