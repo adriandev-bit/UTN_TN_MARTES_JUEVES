@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>General Admission Registration</h1>
+    <form>
+        <label for="name">Name</label>
+        <input type="text" name="name"  placeholder="First Name" required>
+        <input type="text" name="name" placeholder="Last Name"required>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="" id="email" placeholder="sample@example.com">
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label>
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone">
+        </div>
+        <div>
+            <label for="contact">Emergency Contact</label>
+            <input type="tel" id="contact">
+        </div>
+        <div>
+            <label for="parking">Do you require parking?</label>
+            <div>
+                <input type="radio" id="yes" name="parking">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="parking">
+                <label for="no">No</label>
+            </div>
+        </div>
+
+        <label for="room">What is your room preference?</label>
+        <div>
+            <input type="radio" id="single" name="room">
+            <label for="single">Single Room</label>
+        </div>
+        <div>
+            <input type="radio" id="shared" name="room">
+            <label for="shared">Shared Room</label>
+        </div>
+        <div>
+            <input type="radio" id="noroom" name="room">
+            <label for="noroom">No Room Needed</label>
+        </div>
+        <div>
+            <div>
+                <label for="restrictions">Do you have dietary restrictions?</label>
+                <div>
+                    <input type="radio" id="none" name="restrictions" value="none">
+                    <label for="none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="vegetarian" name="restrictions" value="vegetarian">
+                    <label for="vegetarian">Vegetarian</label>
+                </div>
+                <div>
+                    <input type="radio" id="gluten" name="restrictions" value="gluten">
+                    <label for="gluten">Gluten Allergy</label>
+                </div>
+                <div>
+                    <input type="radio" id="lactose" name="restrictions" value="lactose">
+                    <label for="lactose">Lactose Allergy</label>
+                </div>
+                <div>
+                    <input type="radio" id="nut" name="restrictions" value="nut">
+                    <label for="nut">Nut Allergy</label>
+                </div>
+                <div>
+                    <input type="radio" id="shellfish" name="restrictions" value="shellfish">
+                    <label for="shellfish">Shellfish Allergy</label>
+                </div>
+            </div>
+
+            <div>
+                <label for="activities">What activities will you attend?</label>
+                <div>
+                    <input type="radio" id="awards" name="activities" value="awards">
+                    <label for="awards">Awards Gala Dinner</label>
+                </div>
+                <div>
+                    <input type="radio" id="luncheon" name="activities" value="luncheon">
+                    <label for="luncheon">Luncheon</label>
+                </div>
+                <div>
+                    <input type="radio" id="town" name="activities" value="town">
+                    <label for="town">Town Hall</label>
+                </div>
+            </div>
+
+            <div>
+                <label for="attendees">Do you want to see the list of other attendees and their profiles on the official
+                    event app?</label>
+                <div>
+                    <input type="radio" id="yes" name="attendees">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="attendees">
+                    <label for="no">No</label>
+                </div>
+            </div>
+        </div>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
