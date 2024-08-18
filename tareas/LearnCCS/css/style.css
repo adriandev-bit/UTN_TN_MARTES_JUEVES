@@ -1,0 +1,36 @@
+
+body {
+    border-top: 20px solid white; /* Adds a 20px solid white border at the top */
+    background-color: black; /* Sets the background color of the page */
+    color: white; /* Changes text color to white for better contrast */
+    margin: 0; /* Removes default margin around the body */
+    padding: 0; /* Ensures no padding affects the border visibility */
+    font-family: Arial, sans-serif; /* Sets a default font for the page */
+}
+
+
+h1, h3 {
+    text-align: center;
+    text-shadow: 2px 2px 1px rgb(110, 110, 110);/* Outer shadow */
+}
+
+h3{
+    text-align: justify;
+    text-shadow: 3px 3px 1px rgb(110, 110, 110);/* Outer shadow */
+}
+
+p{
+    font-size: 12px;
+}
+
+.lorem{
+    text-decoration: 1px red solid line-through; 
+    color: red;
+}
+
+.link{
+    color: yellow;
+    font-size: 12px;
+}
+
+
