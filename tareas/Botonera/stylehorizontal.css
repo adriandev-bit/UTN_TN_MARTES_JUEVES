@@ -1,0 +1,30 @@
+
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+.padre{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid grey;
+    width: 500px;
+    height: 20px;
+    background-color: white;
+    padding: 10px 10px;
+    box-shadow: 0px 1px;
+}
+
+.hijo {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease; /* Suaviza el efecto de zoom */
+}
+
+.hijo:hover {
+    transform: scale(1.5); /* Ajusta el factor de escala según lo necesites */
+}
