@@ -1,0 +1,186 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('./normalize.css');
+
+:root {
+    --color-texto: rgba(7, 7, 7, 0.898);
+    --color-background: #673de6;
+}
+
+.icon-normal {}
+
+body {
+    height: 200svh;
+}
+
+.asistente-boton {
+    display: flex;
+    background-color: var(--color-background);
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    text-decoration: none;
+
+}
+
+.asistente-boton:hover {
+    background-color: #5025d1;
+
+}
+
+.asistente-boton .asistente-boton-span {
+    font-family: DM Sans, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+
+.asistente-boton .asistente-boton-stars svg {
+    height: 20px;
+    width: 50px;
+    color: white;
+}
+
+.asistente-ventana {
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+    margin-bottom: 60px;
+    box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.3); 
+    padding: 10px;
+}
+
+.asistente-ventana .asistente-ventana-titulo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-palabras {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 2px;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-palabras span {
+    color: grey;
+    font-size: 12px;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-cara {
+    padding: 5px;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-cara:hover {
+    background-color: #f0f0f0;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-trash {
+    padding: 5px;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-trash:hover {
+    background-color: #f0f0f0;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-cross {
+    padding: 5px;
+}
+
+.asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-cross:hover {
+    background-color: #f0f0f0;
+}
+
+.asistente-ventana .asistente-ventana-parrafo {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    gap: 10px;
+    background-color: #f2f3f6;
+}
+
+.asistente-ventana-parrafo .asistente-ventana-parrafo-star {
+    padding: 4px;
+    background-color: var(--color-background);
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.asistente-ventana-parrafo .asistente-ventana-parrafo-star svg {
+    height: 20px;
+    width: 20px;
+}
+
+.asistente-ventana-parrafo .asistente-ventana-parrafo-palabra p {
+    font-family: DM Sans, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-texto);
+}
+
+.asistente-ventana .asistente-ventana-form {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+.asistente-ventana .asistente-ventana-form input {
+    color: var(--color-texto);
+    margin: 10px;
+    padding-right: 50px;
+    padding-left: 10px;
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 10px;
+}
+
+.asistente-ventana .asistente-ventana-form input:hover {
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.asistente-ventana .asistente-ventana-form .asistente-ventana-form-icono {
+    display: flex;
+    position: absolute;
+    right: 15px;
+    height: 30px;
+    width: 40px;
+    padding-left: 10px;
+    padding-top: 3px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.asistente-ventana .asistente-ventana-footer {
+    font-size: 12px;
+    color: grey;
+    padding-left: 20%;
+}
