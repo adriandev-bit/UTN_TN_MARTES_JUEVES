@@ -2,8 +2,14 @@
 @import url('./normalize.css');
 
 :root {
-    --color-texto: rgba(7, 7, 7, 0.898);
-    --color-background: #673de6;
+    --color-texto-general: rgba(7, 7, 7, 0.898);
+    --background-violet: #673de6;
+    --background-violet-darker: #4823b6;
+    --color-border: rgb(218, 218, 218);;
+    --white-color: white;
+    --grey-color-light: rgb(202, 202, 202);
+    --blue-light: rgb(235, 251, 252);
+    --font-sanz: DM Sans, sans-serif;
 }
 
 .icon-normal {}
@@ -14,28 +20,27 @@ body {
 
 .asistente-boton {
     display: flex;
-    background-color: var(--color-background);
-    width: 200px;
-    height: 40px;
-    border-radius: 20px;
     align-items: center;
     position: fixed;
     bottom: 0;
     right: 0;
+    background-color: var(--background-violet);
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
     margin: 10px;
     text-decoration: none;
-
 }
 
 .asistente-boton:hover {
-    background-color: #5025d1;
+    background-color: var(--background-violet-darker);
 
 }
 
 .asistente-boton .asistente-boton-span {
-    font-family: DM Sans, sans-serif;
+    font-family: var(--font-sanz);
     font-weight: bold;
-    color: white;
+    color: var(--white-color);
 }
 
 
@@ -48,7 +53,7 @@ body {
 .asistente-ventana {
     width: 350px;
     height: 350px;
-    background-color: white;
+    background-color: var(--white-color);
     border: 1px solid rgb(211, 211, 211);
     border-radius: 10px;
     position: fixed;
@@ -91,7 +96,7 @@ body {
 }
 
 .asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-cara:hover {
-    background-color: #f0f0f0;
+    background-color: var(--grey-color-light);
 }
 
 .asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-trash {
@@ -99,7 +104,7 @@ body {
 }
 
 .asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-trash:hover {
-    background-color: #f0f0f0;
+    background-color:  var(--grey-color-light);
 }
 
 .asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-cross {
@@ -107,7 +112,7 @@ body {
 }
 
 .asistente-ventana .asistente-ventana-titulo .asistente-ventana-titulo-iconos .asistente-ventana-titulo-iconos-cross:hover {
-    background-color: #f0f0f0;
+    background-color:  var(--grey-color-light);
 }
 
 .asistente-ventana .asistente-ventana-parrafo {
@@ -118,12 +123,12 @@ body {
     margin: 5px;
     padding: 10px;
     gap: 10px;
-    background-color: #f2f3f6;
+    background-color: var(--blue-light);
 }
 
 .asistente-ventana-parrafo .asistente-ventana-parrafo-star {
     padding: 4px;
-    background-color: var(--color-background);
+    background-color: var(--background-violet);
     height: 30px;
     width: 30px;
     border-radius: 10px;
@@ -138,7 +143,7 @@ body {
     font-family: DM Sans, sans-serif;
     font-size: 14px;
     line-height: 1.7;
-    color: var(--color-texto);
+    color: var(--color-texto-general);
 }
 
 .asistente-ventana .asistente-ventana-form {
@@ -150,19 +155,19 @@ body {
 }
 
 .asistente-ventana .asistente-ventana-form input {
-    color: var(--color-texto);
+    color: var(--color-texto-general);
     margin: 10px;
     padding-right: 50px;
     padding-left: 10px;
     height: 50px;
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid rgb(218, 218, 218);
+    border: 1px solid var(--color-border)
     border-radius: 10px;
 }
 
 .asistente-ventana .asistente-ventana-form input:hover {
-    border: 1px solid grey;
+    border: 1px solid var(--grey-color-light);
     border-radius: 10px;
 }
 
@@ -183,4 +188,17 @@ body {
     font-size: 12px;
     color: grey;
     padding-left: 20%;
+}
+
+
+
+@media screen and (min-width: 600px) {
+    .asistente-boton{
+        position: fixed;
+    }
+    .asistente-ventana {
+        position: fixed;
+        bottom: -40px;
+        right: 250px;
+    }
 }
