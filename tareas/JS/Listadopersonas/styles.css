@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: antiquewhite;
+}
+
+.contenedor{
+    background-color: #1f1023;
+    width: 300px;
+    height: 700px;
+    padding: 10px;
+}
+
+.persona {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative; /* Para el posicionamiento del estado */
+    margin-left: 10px;
+    
+}
+.avatar {
+    border-radius: 20%;
+    margin-right: 10px;
+    position: relative; 
+    width: 40px;  /* Ajusta el tamaño según lo que necesites */
+    height: 40px; /* Ajusta el tamaño según lo que necesites */
+}
+
+.estado {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute; /* Cambiado a absolute para posicionar sobre el avatar */
+    bottom: 2px; /* Ajusta según sea necesario */
+    left: 35px; /* Ajusta según sea necesario */
+    border: 2px solid #28a745; /* Color del borde (verde) */
+    background-color: transparent; /* Fondo transparente por defecto */
+}
+.estado.conectado {
+    background-color: #28a745; /* Fondo verde si está conectado */
+}
+.estado.desconectado {
+    background-color: transparent; /* Fondo transparente si está desconectado */
+}

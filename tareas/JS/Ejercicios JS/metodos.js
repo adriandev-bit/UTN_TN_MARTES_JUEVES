@@ -84,4 +84,21 @@ Ademas si el mensaje cuenta con ",", "@", "-" debera decir, "el mensaje es compl
 //Solicitar al usuario una palabra y decir en consola "tiene mayuscula" en el caso de que tenga
 //una maysucula, sino decir "tiene minuscula"
 
-let palabra = prompt('Ingrese palabra')
+// let palabra = prompt('Ingrese palabra')
+// function tieneMayuscula(str) {
+//     return /[A-Z]/.test(str);
+// }
+
+// if(tieneMayuscula(palabra)){
+//     alert('Tiene mayuscula')
+// }
+
+// else if(!tieneMayuscula(palabra)){
+//     alert('No tiene mayuscula')
+// }
+
+
+// Dado una cadena de texto, imprimir "La cadena es mayor a 10 caracteres" si la longitud de la cadena es mayor a 10, 
+//de lo contrario imprimir "La cadena es menor o igual a 10 caracteres".
+
+
