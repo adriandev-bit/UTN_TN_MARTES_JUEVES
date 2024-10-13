@@ -43,3 +43,39 @@ body {
 .estado.desconectado {
     background-color: transparent; /* Fondo transparente si está desconectado */
 }
+
+
+/**************************************************************************************************************/
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    color: #003366; /* Azul oscuro */
+    text-transform: uppercase; /* Mayúsculas */
+}
+th {
+    background-color: #f2f2f2;
+    font-size: 12px;
+}
+
+th svg {
+    vertical-align: middle;
+}
+
+td {
+    border-right: 2px solid #eaeaea;
+}
+td:last-child {
+    border-right: none; /* Sin borde derecho en la última columna */
+}
+
+
+
+
+
