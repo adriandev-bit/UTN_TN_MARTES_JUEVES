@@ -46,18 +46,26 @@ body {
 
 
 /**************************************************************************************************************/
+body {
+    color: #1f1023;
+}
 
+.cabecera {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /*para que no se forme doble linea*/
 }
 th, td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
-    color: #003366; /* Azul oscuro */
-    text-transform: uppercase; /* Mayúsculas */
+    color: #003366; 
+    text-transform: uppercase; 
 }
 th {
     background-color: #f2f2f2;
@@ -72,7 +80,7 @@ td {
     border-right: 2px solid #eaeaea;
 }
 td:last-child {
-    border-right: none; /* Sin borde derecho en la última columna */
+    border-right: none;
 }
 
 
