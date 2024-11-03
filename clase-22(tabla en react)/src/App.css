@@ -1,0 +1,77 @@
+/* App.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.cabecera h2 {
+    margin: 0;
+}
+
+.cabecera span {
+    margin-right: 15px;
+    color: #555;
+}
+
+.selector button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.selector button:hover {
+    background-color: #0056b3;
+}
+
+#registros {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#registros th, #registros td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#registros th {
+    background-color: #f8f8f8;
+    position: relative;
+}
+
+.registro-fila:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.registro-fila:hover {
+    background-color: #eaeaea;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    cursor: pointer;
+}

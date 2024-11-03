@@ -1,0 +1,17 @@
+.conectado {
+    width: 7px; /* Ancho del círculo */
+    height: 7px; /* Alto del círculo */
+    background-color: green; /* Color de relleno */
+    border-radius: 50%; /* Esto hace que sea redondo */
+    margin-top: 10px;
+}
+
+
+.desconectado {
+    width: 5px; /* Ancho del círculo */
+    height: 5px; /* Alto del círculo */
+    background-color: transparent; /* Color de relleno */
+    border: 1px solid green; /* Ancho y color del borde */
+    border-radius: 50%; /* Esto hace que sea redondo */
+    margin-top: 10px;
+}
