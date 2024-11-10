@@ -1,73 +1,105 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
 import './App.css';
-
+import { FaSmile, FaPaperclip, FaMicrophone, FaPaperPlane } from 'react-icons/fa'; // Importamos los íconos
+import whatsappData from "./whatsappData";
+import ContactList from "./contactList";
+import ChatList from "./chatList";
 
 function App() {
-  const historial = [
-    {
-      id: '1',
-      emisor: 'Tu',
-      texto: 'Hola, como andas?',
-      hora: '22.10',
-      status: 'visto'
-    },
-    {
-      id: '2',
-      emisor: 'Usuario',
-      texto: 'Bien y vos?',
-      hora: '22.11',
+
+  const [contactos, setContactos] = useState(whatsappData);
+  const [nuevoMensaje, setNuevoMensaje] = useState('');
+  const [contactoSeleccionado, setContactoSeleccionado] = useState(null); // Estado para el contacto seleccionado
+
+  // Agregar un nuevo mensaje al contacto seleccionado
+  const handleNewMessage = (evento) => {
+    evento.preventDefault();
+    if (nuevoMensaje.trim() === '') return;
+
+    if (contactoSeleccionado === null) {
+      alert('Por favor, selecciona un contacto primero.');
+      return;
+    }
+
+    const nuevoChat = {
+      id: (contactos.find(contacto => contacto.id === contactoSeleccionado).mensajes.length + 1).toString(),
+      emisor: 'Yo',
+      texto: nuevoMensaje,
+      hora: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       status: 'no-visto'
-    },
-    {
-      id: '3',
-      emisor: 'Tu',
-      texto: 'Todo bien, estaba esperando tu mensaje',
-      hora: '22.11',
-      status: 'no-recibido'
-    },
-    // {
-    //   id: '4',
-    //   emisor: 'Usuario',
-    //   texto: 'Bueno aqui estoy',
-    //   hora: '22.12',
-    //   status: 'no-visto'
-    // }
-  ]
+    };
+
+    // Actualizamos los mensajes del contacto seleccionado
+    const nuevosContactos = contactos.map(contacto => {
+      if (contacto.id === contactoSeleccionado) {
+        return { ...contacto, mensajes: [...contacto.mensajes, nuevoChat] };
+      }
+      return contacto;
+    });
+
+    setContactos(nuevosContactos);
+    setNuevoMensaje(''); // Limpiamos el input
+  };
+
+  const handleSelectContact = (id) => {
+    setContactoSeleccionado(id); // Establece el contacto seleccionado
+  };
+
+
 
   return (
-<div className='contenedor-chat'>
+    <div className="app-container">
+      {/* Contenedor de contactos*/}
+      <div className="contact-list">
+        <h2>Contactos</h2>
+       
+        <ContactList
+                    contactos={contactos}
+                    contactoSeleccionado={contactoSeleccionado}
+                    handleSelectContact={handleSelectContact}
+                    
+        />
     
-  {historial.map (chat => (
+      </div>
 
+      {/* Contenedor del chat*/}
+      <div className="chat-container">
+        <div className="chat-history">
+          {/* Filtrar el historial según el contacto seleccionado */}
+          <ChatList
+                    contactos={contactos}
+                    contactoSeleccionado={contactoSeleccionado}
+        />
+        </div>
 
-  <div key={chat.id} className={`chat ${chat.emisor === 'Tu' ? '' : 'move-right'}`}>
-    <div><span>{chat.emisor}</span></div>
-    <span>{chat.texto}</span>
-    <div className='chat-footer'>
-      <span>hora: {chat.hora}</span>
-      <span>{chat.status === 'no-visto'? 
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-        : chat.status === 'visto'?
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M268-240 42-466l57-56 170 170 56 56-57 56Zm226 0L268-466l56-57 170 170 368-368 56 57-424 424Zm0-226-57-56 198-198 57 56-198 198Z"/></svg>
-        : 
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg>
-      }</span>
+        {/* Barra para enviar mensajes */}
+        <div className="send-message">
+          <form onSubmit={handleNewMessage}>
+            <div className="icon-buttons">
+              {/* Íconos de carita, clip y micrófono */}
+              <button type="button" className="icon-btn"><FaSmile /></button>
+              <button type="button" className="icon-btn"><FaPaperclip /></button>
+              <button type="button" className="icon-btn"><FaMicrophone /></button>
+            </div>
+
+            {/* Campo de texto para el mensaje */}
+            <input
+              type="text"
+              placeholder="Escribe aquí..."
+              value={nuevoMensaje}
+              onChange={(evento) => setNuevoMensaje(evento.target.value)}
+              required
+            />
+
+            {/* Botón de enviar */}
+            <button type="submit" className="send-btn">
+              <FaPaperPlane />
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-))}
-
-<div className='send-message'>
-<form action="">
-    <input 
-        type="text" 
-        placeholder="Escribe aqui..." 
-        required 
-    /> 
-</form>
-<button type="submit">Send</button>
-</div>
-  </div>
-);
+  );
 }
 
 export default App;
