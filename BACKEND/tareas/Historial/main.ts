@@ -40,39 +40,83 @@
 //    nombre
 // }
 
-type Actividad = 'Inicio sesión' | 'Cambio de contraseña' | 'Cierre de sesión' | 'Actualización de perfil';
+type Acciones = 'Inicio sesión' | 'Cambio de contraseña' | 'Cierre de sesión' | 'Actualización de perfil';
 
 class Historial {
-    usuario: string;
+    historial: { descripcion: string; id: number; nombre: Acciones; fecha: Date }[] = [];
+
     id: number;
-    actividad: Actividad;
+    nombre: Acciones;
     fecha: Date;
-    acciones: { usuario: string; id: number; actividad: Actividad; fecha: Date }[] = [];
+    descripcion: string;
+   
     constructor(
-        usuario: string = '',
-        id: number = 0,
-        actividad: Actividad = 'Inicio sesión',
+        id: number = 1,
+        nombre: Acciones = 'Inicio sesión',
+        descripcion: string = 'Primer acceso al sistema',
         fecha: Date = new Date(),
     ) {
-        this.usuario = usuario
+        this.nombre = nombre
         this.id = id
-        this.actividad = actividad
+        this.descripcion = descripcion
         this.fecha = fecha
     }
 
 
-    agregarAccion(usuario: string, id: number, actividad: Actividad, fecha: Date ): void {
-        this.acciones.push({ usuario, id, actividad, fecha })
+    agregarAccion(id: number, nombre: Acciones, fecha: Date, descripcion: string ): void {
+        this.historial.push({ id, nombre, fecha, descripcion })
     }
 
-    obtenerAcciones(): { usuario: string, id: number, actividad: Actividad, fecha: Date }[] {
-        return this.acciones;
+    eliminarAccionPorID(id: number): void {
+        this.historial = this.historial.filter(acciones => acciones.id !== id);
+    }
+
+    // eliminarAccionPorID(id: number): void {
+    //     // Busca la acción con el ID dado
+    //     const accion = this.historial.find(accion => accion.id === id);
+    
+    //     // Si encuentra la acción, la elimina
+    //     if (accion) {
+    //         // Encontramos el índice del elemento
+    //         const index = this.historial.indexOf(accion);
+            
+    //         // Eliminamos el elemento utilizando splice
+    //         this.historial.splice(index, 1);
+    //     }
+    // }
+    
+
+    eliminarTodo(): void {
+        this.historial = [];
+    }
+
+    mostrarHistorial(): { id: number, nombre: Acciones, fecha: Date, descripcion: string  }[] {
+        return this.historial;
     }
 }
 
 
-
+// Crear una instancia del historial
 const historial1 = new Historial();
-historial1.agregarAccion('Carlos', 3, 'Cierre de sesión', new Date());
-historial1.agregarAccion('juan', 4,'Actualización de perfil', new Date() )
-console.log(historial1.obtenerAcciones());
+
+// Mostrar el historial (debería estar vacío inicialmente)
+console.log("Historial inicial: ", historial1.mostrarHistorial());
+
+// Agregar más acciones
+historial1.agregarAccion(2, 'Cambio de contraseña', new Date(), 'Cambio de contraseña de Juan');
+historial1.agregarAccion(3, 'Cierre de sesión', new Date(), 'Cierre de sesión de Raúl');
+
+// Mostrar historial después de agregar acciones
+console.log("Historial después de agregar acciones: ", historial1.mostrarHistorial());
+
+// Eliminar una acción por ID (por ejemplo, eliminar la acción con id 2)
+historial1.eliminarAccionPorID(2);
+
+// Mostrar historial después de eliminar una acción
+console.log("Historial después de eliminar la acción con id 2: ", historial1.mostrarHistorial());
+
+// Eliminar todas las acciones
+historial1.eliminarTodo();
+
+// Mostrar historial después de eliminar todas las acciones
+console.log("Historial después de eliminar todas las acciones: ", historial1.mostrarHistorial());
