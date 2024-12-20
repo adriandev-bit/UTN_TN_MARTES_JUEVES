@@ -40,83 +40,66 @@
 //    nombre
 // }
 
-type Acciones = 'Inicio sesión' | 'Cambio de contraseña' | 'Cierre de sesión' | 'Actualización de perfil';
+class Accion {
+    id: number;
+    descripcion: string;
+    fecha: Date;
+    nombre: string;
+
+    constructor(id: number, nombre: string, descripcion: string, fecha: Date = new Date()) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+    }
+}
 
 class Historial {
-    historial: { descripcion: string; id: number; nombre: Acciones; fecha: Date }[] = [];
+    accion_id_counter: number;
+    acciones: Accion[];
 
-    id: number;
-    nombre: Acciones;
-    fecha: Date;
-    descripcion: string;
-   
-    constructor(
-        id: number = 1,
-        nombre: Acciones = 'Inicio sesión',
-        descripcion: string = 'Primer acceso al sistema',
-        fecha: Date = new Date(),
-    ) {
-        this.nombre = nombre
-        this.id = id
-        this.descripcion = descripcion
-        this.fecha = fecha
+    constructor() {
+        this.accion_id_counter = 0;
+        this.acciones = [];
     }
 
-
-    agregarAccion(id: number, nombre: Acciones, fecha: Date, descripcion: string ): void {
-        this.historial.push({ id, nombre, fecha, descripcion })
+    agregarAccion(nombre: string, descripcion: string): void {
+        this.accion_id_counter++;
+        const nuevaAccion = new Accion(this.accion_id_counter, nombre, descripcion);
+        this.acciones.push(nuevaAccion);
     }
 
     eliminarAccionPorID(id: number): void {
-        this.historial = this.historial.filter(acciones => acciones.id !== id);
+        this.acciones = this.acciones.filter(accion => accion.id !== id);
     }
-
-    // eliminarAccionPorID(id: number): void {
-    //     // Busca la acción con el ID dado
-    //     const accion = this.historial.find(accion => accion.id === id);
-    
-    //     // Si encuentra la acción, la elimina
-    //     if (accion) {
-    //         // Encontramos el índice del elemento
-    //         const index = this.historial.indexOf(accion);
-            
-    //         // Eliminamos el elemento utilizando splice
-    //         this.historial.splice(index, 1);
-    //     }
-    // }
-    
 
     eliminarTodo(): void {
-        this.historial = [];
+        this.acciones = [];
     }
 
-    mostrarHistorial(): { id: number, nombre: Acciones, fecha: Date, descripcion: string  }[] {
-        return this.historial;
+    mostrarHistorial(): Accion[] {
+        return this.acciones;
     }
 }
 
 
-// Crear una instancia del historial
-const historial1 = new Historial();
 
-// Mostrar el historial (debería estar vacío inicialmente)
-console.log("Historial inicial: ", historial1.mostrarHistorial());
+// Pruebas
 
-// Agregar más acciones
-historial1.agregarAccion(2, 'Cambio de contraseña', new Date(), 'Cambio de contraseña de Juan');
-historial1.agregarAccion(3, 'Cierre de sesión', new Date(), 'Cierre de sesión de Raúl');
+const historial = new Historial();
+historial.agregarAccion('Inicio sesión', 'El usuario ha iniciado sesión.');
+historial.agregarAccion('Cambio de contraseña', 'El usuario ha cambiado su contraseña.');
+historial.agregarAccion('Cierre de sesión', 'El usuario ha cerrado sesión.');
 
-// Mostrar historial después de agregar acciones
-console.log("Historial después de agregar acciones: ", historial1.mostrarHistorial());
+console.log('Historial después de agregar acciones:');
+console.log(historial.mostrarHistorial());
 
-// Eliminar una acción por ID (por ejemplo, eliminar la acción con id 2)
-historial1.eliminarAccionPorID(2);
+// Eliminar una acción por su id
+historial.eliminarAccionPorID(2);
+console.log('Después de eliminar la acción con ID 2:');
+console.log(historial.mostrarHistorial());
 
-// Mostrar historial después de eliminar una acción
-console.log("Historial después de eliminar la acción con id 2: ", historial1.mostrarHistorial());
-
-// Eliminar todas las acciones
-historial1.eliminarTodo();
-
-// Mostrar historial después de eliminar todas las acciones
-console.log("Historial después de eliminar todas las acciones: ", historial1.mostrarHistorial());
+// Eliminar todo el historial
+historial.eliminarTodo();
+console.log('Después de eliminar todo el historial:');
+console.log(historial.mostrarHistorial());
