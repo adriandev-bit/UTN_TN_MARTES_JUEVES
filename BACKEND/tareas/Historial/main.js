@@ -93,6 +93,40 @@ var AccionCierreSesion = /** @class */ (function (_super) {
     };
     return AccionCierreSesion;
 }(Accion));
+var AccionActualizacionPerfil = /** @class */ (function (_super) {
+    __extends(AccionActualizacionPerfil, _super);
+    function AccionActualizacionPerfil(id, cambios, fecha) {
+        if (fecha === void 0) { fecha = new Date(); }
+        var _this = _super.call(this, id, 'Actualizaion de Perfil', fecha) || this;
+        _this.cambios = cambios;
+        return _this;
+    }
+    AccionActualizacionPerfil.prototype.mostrarDetalle = function () {
+        console.log("Acci\u00F3n ID: ".concat(this.id));
+        console.log("Descripci\u00F3n: ".concat(this.descripcion));
+        console.log("Fecha: ".concat(this.fecha));
+        console.log("Cambios: ".concat(this.cambios));
+    };
+    return AccionActualizacionPerfil;
+}(Accion));
+var AccionCompra = /** @class */ (function (_super) {
+    __extends(AccionCompra, _super);
+    function AccionCompra(id, productos, total, fecha) {
+        if (fecha === void 0) { fecha = new Date(); }
+        var _this = _super.call(this, id, 'Lista de compra', fecha) || this;
+        _this.productos = productos;
+        _this.total = total;
+        return _this;
+    }
+    AccionCompra.prototype.mostrarDetalle = function () {
+        console.log("Acci\u00F3n ID: ".concat(this.id));
+        console.log("Descripci\u00F3n: ".concat(this.descripcion));
+        console.log("Fecha: ".concat(this.fecha));
+        console.log("Productos comprados: ".concat(this.productos));
+        console.log("Total a pagar: ".concat(this.total));
+    };
+    return AccionCompra;
+}(Accion));
 var AccionEnvioMensaje = /** @class */ (function (_super) {
     __extends(AccionEnvioMensaje, _super);
     function AccionEnvioMensaje(id, destinatario, mensaje, fecha) {
@@ -138,6 +172,12 @@ historial.agregarAccion(accionCierreSesion);
 // Crear una acción de AccionEnvioMensaje
 var accionEnvioMensaje = new AccionEnvioMensaje(3, "Cliente", "Su pago se realizo con exito", new Date("2024-12-28T09:00:00"));
 historial.agregarAccion(accionEnvioMensaje);
+// Crear una acción de Compra
+var accionCompra = new AccionCompra(4, ["mouse", "teclado", "monitor"], 2000000, new Date("2024-12-28T09:00:00"));
+historial.agregarAccion(accionCompra);
+// Crear una acción de AccionActualizacionPerfil
+var accionActualizacionPerfil = new AccionActualizacionPerfil(5, ["nombre", "contraseña", "foto de perfil"], new Date("2024-12-28T09:00:00"));
+historial.agregarAccion(accionActualizacionPerfil);
 // Mostrar el historial
 console.log("Historial de acciones:");
 historial.mostrarHistorial();

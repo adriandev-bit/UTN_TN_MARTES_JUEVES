@@ -93,6 +93,42 @@ class AccionCierreSesion extends Accion {
     }
 }
 
+class AccionActualizacionPerfil extends Accion {
+    cambios: string[];
+
+    constructor(id: number, cambios: string[], fecha: Date = new Date()) {
+        super(id, 'Actualizaion de Perfil', fecha); 
+        this.cambios = cambios;
+    }
+
+    mostrarDetalle(): void {
+        console.log(`Acción ID: ${this.id}`);
+        console.log(`Descripción: ${this.descripcion}`);
+        console.log(`Fecha: ${this.fecha}`);
+        console.log(`Cambios: ${this.cambios}`);
+    }
+}
+
+class AccionCompra extends Accion {
+    productos: string[];
+    total: number;
+
+    constructor(id: number, productos: string[], total: number, fecha: Date = new Date()) {
+        super(id, 'Lista de compra', fecha); 
+        this.productos = productos;
+        this.total = total;
+    }
+
+    mostrarDetalle(): void {
+        console.log(`Acción ID: ${this.id}`);
+        console.log(`Descripción: ${this.descripcion}`);
+        console.log(`Fecha: ${this.fecha}`);
+        console.log(`Productos comprados: ${this.productos}`);
+        console.log(`Total a pagar: ${this.total}`);
+    }
+}
+
+
 class AccionEnvioMensaje extends Accion {
     destinatario: string;
     mensaje: string;
@@ -111,6 +147,7 @@ class AccionEnvioMensaje extends Accion {
         console.log(`Mensaje: ${this.mensaje}`);
     }
 }
+
 
 class Historial {
     accion_id_counter: number;
@@ -148,11 +185,17 @@ historial.agregarAccion(accionInicioSesion)
 const accionCierreSesion = new AccionCierreSesion(2, "Smartphone", 120, new Date("2024-12-28T09:00:00"));
 historial.agregarAccion(accionCierreSesion)
 
-
 // Crear una acción de AccionEnvioMensaje
 const accionEnvioMensaje = new AccionEnvioMensaje(3, "Cliente", "Su pago se realizo con exito", new Date("2024-12-28T09:00:00"));
 historial.agregarAccion(accionEnvioMensaje)
 
+// Crear una acción de Compra
+const accionCompra = new AccionCompra(4, ["mouse", "teclado", "monitor"], 2000000, new Date("2024-12-28T09:00:00"));
+historial.agregarAccion(accionCompra)
+
+// Crear una acción de AccionActualizacionPerfil
+const accionActualizacionPerfil = new AccionActualizacionPerfil(5, ["nombre", "contraseña", "foto de perfil"], new Date("2024-12-28T09:00:00"));
+historial.agregarAccion(accionActualizacionPerfil)
 
 // Mostrar el historial
 console.log("Historial de acciones:");
