@@ -43,63 +43,124 @@
 class Accion {
     id: number;
     descripcion: string;
-    fecha: Date;
-    nombre: string;
+    fecha: Date = new Date();
 
-    constructor(id: number, nombre: string, descripcion: string, fecha: Date = new Date()) {
+    constructor(id: number, descripcion: string, fecha: Date = new Date()) {
         this.id = id;
-        this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;
+    }
+
+    mostrarDetalle(): void {
+        console.log(`Acción ID: ${this.id}`);
+        console.log(`Descripción: ${this.descripcion}`);
+        console.log(`Fecha: ${this.fecha}`);
+    }
+}
+
+class AccionInicioSesion extends Accion {
+    dispositivo_origen: string;
+
+    constructor(id: number, dispositivo_origen: string, fecha: Date = new Date()) {
+        super(id, 'Inicio de sesion', fecha); 
+        this.dispositivo_origen = dispositivo_origen;
+    }
+
+    mostrarDetalle(): void {
+        console.log(`Acción ID: ${this.id}`);
+        console.log(`Descripción: ${this.descripcion}`);
+        console.log(`Fecha: ${this.fecha}`);
+        console.log(`Dispositivo de origen: ${this.dispositivo_origen}`);
+    }
+}
+
+class AccionCierreSesion extends Accion {
+    dispositivo_origen: string;
+    tiempo_de_sesion: number;
+
+    constructor(id: number, dispositivo_origen: string, tiempo_de_sesion: number, fecha: Date = new Date()) {
+        super(id, 'Cierre de sesion', fecha); 
+        this.dispositivo_origen = dispositivo_origen;
+        this.tiempo_de_sesion = tiempo_de_sesion;
+    }
+
+    mostrarDetalle(): void {
+        console.log(`Acción ID: ${this.id}`);
+        console.log(`Descripción: ${this.descripcion}`);
+        console.log(`Fecha: ${this.fecha}`);
+        console.log(`Dispositivo de origen: ${this.dispositivo_origen}`);
+        console.log(`Tiempo de sesion: ${this.tiempo_de_sesion}`);
+    }
+}
+
+class AccionEnvioMensaje extends Accion {
+    destinatario: string;
+    mensaje: string;
+
+    constructor(id: number, destinatario: string, mensaje: string, fecha: Date = new Date()) {
+        super(id, 'Envio de mensaje', fecha); 
+        this.destinatario = destinatario;
+        this.mensaje = mensaje;
+    }
+
+    mostrarDetalle(): void {
+        console.log(`Acción ID: ${this.id}`);
+        console.log(`Descripción: ${this.descripcion}`);
+        console.log(`Fecha: ${this.fecha}`);
+        console.log(`Destinatario: ${this.destinatario}`);
+        console.log(`Mensaje: ${this.mensaje}`);
     }
 }
 
 class Historial {
     accion_id_counter: number;
-    acciones: Accion[];
+    acciones: Accion[];     //array de objetos de tipo Accion
 
     constructor() {
         this.accion_id_counter = 0;
         this.acciones = [];
     }
 
-    agregarAccion(nombre: string, descripcion: string): void {
-        this.accion_id_counter++;
-        const nuevaAccion = new Accion(this.accion_id_counter, nombre, descripcion);
-        this.acciones.push(nuevaAccion);
+    agregarAccion(accion: Accion): void {
+        this.acciones.push(accion);
     }
 
     eliminarAccionPorID(id: number): void {
         this.acciones = this.acciones.filter(accion => accion.id !== id);
     }
 
-    eliminarTodo(): void {
-        this.acciones = [];
-    }
-
-    mostrarHistorial(): Accion[] {
-        return this.acciones;
+    mostrarHistorial(): void {
+        this.acciones.forEach(accion => accion.mostrarDetalle());
     }
 }
 
 
 
-// Pruebas
-
+// Crear una instancia de Historial
 const historial = new Historial();
-historial.agregarAccion('Inicio sesión', 'El usuario ha iniciado sesión.');
-historial.agregarAccion('Cambio de contraseña', 'El usuario ha cambiado su contraseña.');
-historial.agregarAccion('Cierre de sesión', 'El usuario ha cerrado sesión.');
 
-console.log('Historial después de agregar acciones:');
-console.log(historial.mostrarHistorial());
 
-// Eliminar una acción por su id
-historial.eliminarAccionPorID(2);
-console.log('Después de eliminar la acción con ID 2:');
-console.log(historial.mostrarHistorial());
+// Crear una acción de inicio de sesión
+const accionInicioSesion = new AccionInicioSesion(1, "Laptop", new Date("2024-12-28T08:00:00"));
+historial.agregarAccion(accionInicioSesion)
 
-// Eliminar todo el historial
-historial.eliminarTodo();
-console.log('Después de eliminar todo el historial:');
-console.log(historial.mostrarHistorial());
+// Crear una acción de cierre de sesión
+const accionCierreSesion = new AccionCierreSesion(2, "Smartphone", 120, new Date("2024-12-28T09:00:00"));
+historial.agregarAccion(accionCierreSesion)
+
+
+// Crear una acción de AccionEnvioMensaje
+const accionEnvioMensaje = new AccionEnvioMensaje(3, "Cliente", "Su pago se realizo con exito", new Date("2024-12-28T09:00:00"));
+historial.agregarAccion(accionEnvioMensaje)
+
+
+// Mostrar el historial
+console.log("Historial de acciones:");
+historial.mostrarHistorial();
+
+// Eliminar una acción por su ID (por ejemplo, la acción con ID 1)
+historial.eliminarAccionPorID(1);
+
+// Mostrar el historial nuevamente después de la eliminación
+console.log("\nHistorial después de eliminar la acción con ID 1:");
+historial.mostrarHistorial();
