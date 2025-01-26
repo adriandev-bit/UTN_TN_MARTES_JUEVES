@@ -151,7 +151,7 @@ class AccionEnvioMensaje extends Accion {
 
 class Historial {
     accion_id_counter: number;
-    acciones: Accion[];     //array de objetos de tipo Accion
+    acciones: Accion[];     
 
     constructor() {
         this.accion_id_counter = 0;

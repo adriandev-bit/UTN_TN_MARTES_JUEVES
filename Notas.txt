@@ -1,0 +1,102 @@
+
+https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+
+Instalar git
+git init
+git add .     para pasar de untracked a tracked
+git status
+git commit -m 'mi primer commit'
+git log       dice las versiones del codigo
+git push -u origin main
+
+-----------------------------------------------
+git init
+git add .
+git commit -m "wapp-project"
+git branch -M main
+git remote add origin https://github.com/direccion-de-su-repositorio.git
+git push -u origin main
+------------------------------------------------------
+git remote add origin https://github.com/adriandev-bit/whatsappClone.git
+
+git remote set-url origin https://github.com/adriandev-bit/whatsappClone.git
+
+vercel.json
+{
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+    ]
+}
+
+
+https://docs.google.com/document/d/1axiyIh45Qll6qcYfawxzF6RbBEvIGPdwCV6AHq_jiw0/edit?tab=t.0
+
+
+
+
+
+
+instalar nodeJS
+react
+npm create vite@latest prueba
+cd prueba
+npm install
+npm run dev
+
+
+Dependencias react
+npm i react-router-dom
+
+react sni  instalar en visual para sniped, abreviaturas
+
+https://react-icons.github.io/ iconos
+
+
+-------------------------------------------------------------------------------
+
+BackEnd
+
+Get-ExecutionPolicy
+unrestricted
+npm install -g typescript
+tsc --init
+
+instalar  Pretty TypeScript Errors   // Error Lens
+
+  
+## Pasos para empezar un proyecto con Node.js
+-En la terminal:
+-npm init -y
+-Crear el archivo principal (por ejemplo main.js)
+-En el package.json modificar en el apartado de scripts para que tenga
+-"dev": "node --watch main.js" (O el nombre del archivo principal)
+-Escribir en la terminal:
+-npm run dev
+  
+  
+npm init -y     -- crea el package json
+npm run start
+
+"dev": "node --watch main.js"    -- agregamos esa linea en el package json
+npm run dev     --  Corre el script DEV
+
+
+en package.json  ---> en scripts: "dev": "node --watch main.js",
+y agregar "type": "module",
+
+
+npm install express --  "dependencies": {
+    "express": "^4.21.2"
+  }
+  
+  https://www.npmjs.com/package/express
+  https://expressjs.com/
+
+
+xampp
+netstat -aon | findstr :puerto
+taskkill /PID 21440 /F numero de proceso
+
+
+
+module.exports = 'pepe'
