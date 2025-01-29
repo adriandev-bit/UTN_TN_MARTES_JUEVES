@@ -1,0 +1,60 @@
+<h1>Probando {{this.name}}</h1>
+{{#if this.has_banner}}
+    {{{this.banner}}}
+    {{else}}
+    <span>Publicita aqui</span>
+{{/if}}
+
+<h1>Notificaciones nuevas:</h1>
+{{#if this.has_notifications}}
+    {{{this.notifications}}}
+    {{else}}
+    <span>No hay notificaciones nuevas</span>
+{{/if}}
+
+<main>
+  <aside>
+    <h2>Amigos:</h2>
+    <div>
+      {{#each this.friends}}
+        <div>
+          <h3>{{name}}</h3>
+          <span>
+            {{#if is_connected}}
+              Conectado
+            {{else}}
+              Desconectado
+            {{/if}}
+          </span>
+        </div>
+      {{/each}}
+    </div>
+  </aside>
+  <div>
+  </div>
+</main>
+
+
+
+<main>
+  <section>
+    <h2>Posts:</h2>
+    {{#each posts}} <!-- Iteramos sobre los posts -->
+      <article>
+        <h3>{{title}}</h3>
+        <p>{{text}}</p>
+        <p><strong>Likes:</strong> {{likes}} | <strong>Retweets:</strong> {{retweets}}</p>
+
+        <h4>Comentarios:</h4>
+        <ul>
+          {{#each comments}} <!-- Iteramos sobre los comentarios de cada post -->
+            <li>
+              <strong>{{name}}</strong>: {{text}} (Likes: {{likes}})
+            </li>
+          {{/each}}
+        </ul>
+      </article>
+    {{/each}}
+  </section>
+</main>
+

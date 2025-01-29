@@ -1,7 +1,7 @@
 import express from 'express';
 import authRouter from './routes/auth.router.js';
 import userRouter from './routes/users.router.js';
-import productsRouter from './routes/products.router.js'
+import productsRouter from './routes/products.router.js';
 
 const PORT = 3000
 const app = express()
@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
-app.use('/api/product', productsRouter)
+app.use('/api/products', productsRouter)
 
 
 // app.get('/test/:limit', (req, res) =>{
