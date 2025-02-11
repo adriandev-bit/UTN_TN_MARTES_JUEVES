@@ -52,6 +52,10 @@ react sni  instalar en visual para sniped, abreviaturas
 https://react-icons.github.io/ iconos
 
 
+index.html --> main.jsx --> App.jsx --> Screens --> Login
+												--> Register
+												
+												
 -------------------------------------------------------------------------------
 
 BackEnd
@@ -98,5 +102,21 @@ netstat -aon | findstr :puerto
 taskkill /PID 21440 /F numero de proceso
 
 
+npm i bcrypt
+npm i nodemailer
 
-module.exports = 'pepe'
+
+https://codepen.io/corenominal/pen/rxOmMJ   --  Generar API
+
+
+juanprueba prueba
+juanpruebaprueba060@gmail.com
+prueba147
+
+
+
+
+
+
+
+
