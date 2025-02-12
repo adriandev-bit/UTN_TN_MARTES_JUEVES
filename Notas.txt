@@ -21,6 +21,14 @@ git remote add origin https://github.com/adriandev-bit/whatsappClone.git
 
 git remote set-url origin https://github.com/adriandev-bit/whatsappClone.git
 
+
+git remote -v
+git remote set-url origin https://github.com/adriandev-bit/UTN_TN_MARTES_JUEVES/tree/main/BACKEND
+git push -u origin main
+git push --force origin main
+
+
+
 vercel.json
 {
     "rewrites": [

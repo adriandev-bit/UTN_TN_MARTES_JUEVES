@@ -3,8 +3,19 @@ import express from 'express'
 import authRouter from "./routes/auth.router.js";
 import mongoose from "./config/mongoDB.config.js";
 import { sendMail } from "./utils/mailer.utils.js";
+import cors from 'cors'
 
 const app = express()
+
+app.use(cors()) //Deshabilito la politica de cors
+
+//Si quieren que sea reservado para cierto dominio
+// app.use(cors(
+//     {
+//         origin: ENVIROMENT.URL_FRONTEND
+//     }
+// ))
+
 
 app.use(express.json())
 
